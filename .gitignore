@@ -17,7 +17,6 @@ __pycache__/
 .env.*
 
 # Ignore static files generated during deployment
-/static/
 media/
 
 # Ignore database files
