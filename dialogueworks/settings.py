@@ -37,6 +37,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+
+
+    # Dialogue Works apps
+    'authentication',
+    'conversations',
+    'messaging',
+    'notifications',
+    'search',
+    'multimedia',
+    'profiles',
+    'moderation',
+    'customization',
+    'analytics',
 ]
 
 MIDDLEWARE = [
@@ -105,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
