@@ -122,7 +122,7 @@ Dialogue Works Club invites young people, organizations, and stakeholders to joi
 For more information about Dialogue Works Club, collaboration inquiries, or membership details:  
 
 - **Institution**: Jaramogi Oginga Odinga University of Science and Technology  
-- **Email**:vo4685336@gmail.com
+- **Email**: vo4685336@gmail.com
 - **Website**: [Coming Soon]  
 - **Social Media**: [Links to be provided]  
 
