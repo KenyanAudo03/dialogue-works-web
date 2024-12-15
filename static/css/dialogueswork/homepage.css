@@ -1,3 +1,15 @@
+/* Hide the div by default */
+.default_logos {
+  display: none;
+}
+
+/* Show the div only on screens larger than 1300px */
+@media (min-width: 1000px) {
+  .default_logos {
+    display: flex;
+  }
+}
+
 /* Custom Animations */
 @keyframes bounce {
   0%,
@@ -66,11 +78,20 @@ header p:hover {
 .testimonials {
   margin-top: 10px;
 }
-.dialogue__pillars{
+.dialogue__pillars {
   margin-top: 10px;
 }
-.register__now{
+.register__now {
   margin-top: 10px;
+}
+.vision__mission__purpose .heading,
+.testimonials .heading,
+.dialogue__pillars .heading,
+.register__now .heading{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
 }
 .vision__mission__purpose h1,
 .testimonials h1,
@@ -82,6 +103,34 @@ header p:hover {
   font-family: "Bebas Neue", sans-serif;
   font-weight: 700;
   font-style: normal;
+  padding-bottom: 3px;
+  position: relative;
+  display: inline-block;
+}
+
+.vision__mission__purpose h1:before,
+.testimonials h1:before,
+.dialogue__pillars h1:before,
+.register__now h1:before {
+  content: "";
+  width: 100%;
+  height: 3px;
+  background: #ccc;
+  position: absolute;
+  bottom: 0;
+}
+
+.vision__mission__purpose h1:after,
+.testimonials h1:after,
+.dialogue__pillars h1:after,
+.register__now h1:after {
+  content: "";
+  width: 50%;
+  height: 3px;
+  background: gold;
+  display: block;
+  position: absolute;
+  bottom: 0;
 }
 
 .mission__vision {
@@ -98,6 +147,7 @@ header p:hover {
   flex-direction: column;
   width: 33.33%;
   padding: 10px;
+  border-top: 1px solid #ccc;
 }
 
 .mission__vision .vision::before,
@@ -192,11 +242,11 @@ header p:hover {
   margin-bottom: 10px;
   padding: 10px;
 }
-/* @media(max-width:1000px){
-  .mission__vision{
-    max-height: 180px;
+@media (max-width: 1200px) {
+  .mission__vision p {
+    height: 180px;
   }
-} */
+}
 .mission__vision .vision .icon {
   border-bottom: 1px solid #fff;
 }
@@ -211,8 +261,8 @@ header p:hover {
   position: relative;
   border-radius: 10px;
   overflow: hidden;
-  display: block; /* Ensures block-level margin works */
-  margin-top: 10px; /* Your margin */
+  display: block;
+  margin-top: 10px;
   clear: right;
 }
 
@@ -264,6 +314,39 @@ header p:hover {
   font-weight: 500;
   font-style: normal;
 }
+@media (max-width: 1000px) {
+  .mission__vision .image-container {
+    display: none;
+  }
+  .mission__vision {
+    flex-direction: column-reverse;
+  }
+
+  .mission__vision .vision,
+  .mission__vision .mission,
+  .mission__vision .purpose {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .mission__vision p {
+    padding-left: 20px;
+    padding-top: 10px;
+    height: auto;
+  }
+
+  .mission__vision h2 {
+    padding-left: 10px;
+    font-size: 20px;
+  }
+
+  .mission__vision .icon {
+    float: none;
+    text-align: left;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+}
 
 /* Scrollbar */
 body::-webkit-scrollbar {
@@ -298,8 +381,11 @@ body::-webkit-scrollbar-track {
   scroll-snap-type: inline mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+  scrollbar-color: gold transparent;
+  width: 100%;
+  visibility: visible;
 }
+
 
 .testimonials-list::-webkit-scrollbar {
   height: 8px;
@@ -315,10 +401,8 @@ body::-webkit-scrollbar-track {
   max-width: 100%;
   scroll-snap-align: center;
   position: relative;
-  background: var(--eerie-black-2);
   border-radius: 14px;
-  padding: 30px 20px 20px;
-  box-shadow: var(--shadow-1);
+  padding: 30px 20px 10px 20px;
   border: 1px solid #000;
 }
 
@@ -337,7 +421,7 @@ body::-webkit-scrollbar-track {
   height: 100px;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px double #000;
+  border: 1px solid #000;
 }
 
 .testimonials-item .name {
@@ -361,12 +445,10 @@ body::-webkit-scrollbar-track {
 }
 
 .testimonials-text {
-  color: var(--light-gray);
-  font-size: var(--fs-6);
-  font-weight: var(--fw-300);
+  font-weight: 500;
   line-height: 1.6;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin-top: 10px;
@@ -375,7 +457,9 @@ body::-webkit-scrollbar-track {
   margin-bottom: 5px;
   border-bottom: 1px solid #ccc;
 }
-
+.testimonials-item .social__accounts {
+  margin-top: 10px;
+}
 .testimonials-item .social__accounts ul {
   display: flex;
   list-style: none;
@@ -424,24 +508,218 @@ body::-webkit-scrollbar-track {
     flex: 0 0 100%;
   }
 }
-.dialogue__pillars{
+.dialogue__pillars {
   width: 100%;
 }
-.dialogue__pillars .heading__paragraph{
+.dialogue__pillars .heading__paragraph {
   color: #1f242a;
   font-size: 17px;
   font-weight: 600;
 }
-.register__now .register__paragraph{
+.register__now .register__paragraph {
   color: #1f242a;
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 500;
-  font-family: "Josefin Sans", sans-serif;
-  font-optical-sizing: auto;
   font-style: normal;
 }
-.register__now .join__text{
-  border: 1px solid #ccc;
-  padding: 5px;
-  border-radius: 7px;
+.join__text {
+  padding: 40px 20px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.join__text h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.join__text p {
+  font-size: 1.125rem;
+  color: #4a5568;
+  margin-bottom: 2rem;
+}
+
+.join__text .flex {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.join__text .flex a {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.join__text .flex a:hover {
+  transform: translateY(-3px);
+}
+
+.join__text .bg-blue-600 {
+  background-color: #3182ce;
+  color: #fff;
+}
+
+.join__text .bg-blue-600:hover {
+  background-color: #2b6cb0;
+}
+
+.join__text .bg-gray-600 {
+  background-color: #4a5568;
+  color: #fff;
+}
+
+.join__text .bg-gray-600:hover {
+  background-color: #2d3748;
+}
+
+@media (max-width: 768px) {
+  .join__text {
+    padding: 30px 15px;
+  }
+
+  .join__text h2 {
+    font-size: 2rem;
+  }
+
+  .join__text p {
+    font-size: 1rem;
+  }
+
+  .join__text .flex a {
+    width: 50%;
+    text-align: center;
+  }
+}
+
+
+/* Footer */
+.site-footer {
+  background-color: #26272b;
+  padding: 45px 0 20px;
+  font-size: 15px;
+  line-height: 24px;
+  color: #737373;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+.site-footer hr {
+  border-top-color: #bbb;
+  opacity: 0.5;
+}
+.site-footer hr.small {
+  margin: 20px 0;
+}
+.site-footer h6 {
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-top: 5px;
+  letter-spacing: 2px;
+}
+.site-footer a {
+  color: #737373;
+}
+.site-footer a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.footer-links {
+  padding-left: 0;
+  list-style: none;
+}
+.footer-links li {
+  display: block;
+}
+.footer-links a {
+  color: #737373;
+}
+.footer-links a:active,
+.footer-links a:focus,
+.footer-links a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.site-footer .social-icons {
+  text-align: right;
+}
+.site-footer .social-icons a {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  margin-left: 6px;
+  margin-right: 0;
+  border-radius: 100%;
+  background-color: #33353d;
+}
+.copyright-text {
+  margin: 0;
+}
+@media (max-width: 991px) {
+  .site-footer [class^="col-"] {
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .site-footer {
+    padding-bottom: 0;
+  }
+  .site-footer .copyright-text,
+  .site-footer .social-icons {
+    text-align: center;
+  }
+}
+.social-icons {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.social-icons li {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+.social-icons a {
+  background-color: #eceeef;
+  color: #818a91;
+  font-size: 16px;
+  display: inline-block;
+  line-height: 44px;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  margin-right: 8px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.logo {
+  color: #eb6857;
+}
+.social-icons a:active,
+.social-icons a:focus,
+.social-icons a:hover {
+  color: #fff;
+  background-color: #29aafe;
+}
+.social-icons a.facebook:hover {
+  background-color: #3b5998;
+}
+.social-icons a.twitter:hover {
+  background-color: #00aced;
+}
+.social-icons a.linkedin:hover {
+  background-color: #007bb6;
+}
+.social-icons a.telegram:hover {
+  background-color: blue;
+}
+.social-icons a.whatsapp:hover {
+  background-color: green;
 }
