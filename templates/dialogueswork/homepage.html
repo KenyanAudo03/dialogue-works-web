@@ -59,10 +59,16 @@
 
     <!-- Header background image -->
     <style>
-       @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
         }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
       .hero-bg {
         background-image: linear-gradient(
             rgba(0, 0, 0, 0.6),
@@ -135,12 +141,11 @@
     <!-- Vision and Mission Section -->
     <section class="vision__mission__purpose">
       <div class="heading">
-      <h1>Our Vision, Mission, and Purpose</h1>
-    </div>
+        <h1>Our Vision, Mission, and Purpose</h1>
+      </div>
       <div class="mission__vision">
         <div class="vision">
           <div class="content">
-            
             <h2>Our <span>Vision</span></h2>
 
             <p>
@@ -201,8 +206,8 @@
 
     <section class="testimonials">
       <div class="heading">
-      <h1>OUR OFFICIALS</h1>
-    </div>
+        <h1>OUR OFFICIALS</h1>
+      </div>
 
       <ul class="testimonials-list has-scrollbar">
         <li class="testimonials-item">
@@ -528,8 +533,8 @@
       <div class="mx-auto px-4">
         <div class="text-center mb-12">
           <div class="heading">
-          <h1>Our Five Pillars</h1>
-        </div>
+            <h1>Our Five Pillars</h1>
+          </div>
           <p class="heading__paragraph">
             At Dialogue Works, our efforts are guided by five core pillars that
             address the most pressing challenges in our communities. Explore our
@@ -733,8 +738,8 @@
     <!-- Register -->
     <section class="mx-auto px-4 py-12 w-full register__now">
       <div class="heading">
-      <h1>REGISTER TODAY</h1>
-    </div>
+        <h1>REGISTER TODAY</h1>
+      </div>
       <div
         class="flex flex-col md:flex-row items-center justify-between w-full gap-6"
       >
@@ -767,6 +772,11 @@
             >
               Login
             </a>
+            <style>
+              a:hover {
+                text-decoration: none;
+              }
+            </style>
           </div>
         </div>
       </div>
@@ -800,7 +810,9 @@
             <h6>Quick Links</h6>
             <ul class="footer-links">
               <li><a href="#" target="_blank">About Us</a></li>
-              <li><a href="{% url 'contact' %}" target="_blank">Contact Us</a></li>
+              <li>
+                <a href="{% url 'contact' %}" target="_blank">Contact Us</a>
+              </li>
               <li><a href="#" target="_blank">Upcoming Events</a></li>
               <li><a href="#" target="_blank">Resources</a></li>
               <li><a href="#" target="_blank">Our Blog</a></li>
