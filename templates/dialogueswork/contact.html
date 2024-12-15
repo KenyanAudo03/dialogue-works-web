@@ -1,0 +1,414 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JOOUST Dialogue Works - Contact Page</title>
+    <link rel="stylesheet" href="{% static 'css/dialogueswork/contact.css'%}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inconsolata:wght@200..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/dialogueswork/homepage.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <section class="how_we_can_help">
+      <h2>How We Can Help</h2>
+      <div class="help__list">
+        <div class="help__item">
+          <i class="icon fa-solid fa-comments"></i>
+          <h3>Quality Education</h3>
+          <p>
+            Fostering open dialogue to address challenges in providing inclusive
+            and quality education for all.
+          </p>
+        </div>
+        <div class="help__item">
+          <i class="icon fa-solid fa-shield-alt"></i>
+          <h3>Tackling Insecurity</h3>
+          <p>
+            Encouraging conversations on innovative solutions to improve safety
+            and build resilient communities.
+          </p>
+        </div>
+        <div class="help__item">
+          <i class="icon fa-solid fa-hand-holding-heart"></i>
+          <h3>Combating Drug Abuse</h3>
+          <p>
+            Raising awareness and sharing strategies to reduce drug abuse and
+            support affected individuals.
+          </p>
+        </div>
+        <div class="help__item">
+          <i class="icon fa-solid fa-lightbulb"></i>
+          <h3>Driving Innovation</h3>
+          <p>
+            Empowering communities through dialogue on creativity,
+            entrepreneurship, and technological advancements.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact__form">
+      <form
+        action="https://api.web3forms.com/submit"
+        method="POST"
+        id="contactForm"
+      >
+        <input
+          type="hidden"
+          name="access_key"
+          value=""
+        />
+
+        <div class="heading">
+          <h2>Mail Us</h2>
+        </div>
+
+        <div class="form__inputs">
+          <div class="name__email">
+            <div class="name">
+              <label for="fullName">Full Name</label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                placeholder="Full Name"
+                required
+              />
+              <div class="error hidden" id="fullNameError"></div>
+            </div>
+
+            <div class="email">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                required
+              />
+              <div class="error hidden" id="emailError"></div>
+            </div>
+          </div>
+
+          <div class="number__subject">
+            <div class="phone">
+              <label for="phoneNumber">Phone Number</label>
+              <div style="display: flex">
+                <input
+                  type="text"
+                  id="countryCode"
+                  name="countryCode"
+                  placeholder="+254"
+                  value="+254"
+                  readonly
+                  style="width: 80px"
+                />
+                <input
+                  type="text"
+                  id="phoneNumber"
+                  name="phoneNumber"
+                  placeholder="123456789"
+                  required
+                  style="flex: 1"
+                />
+              </div>
+              <div class="error hidden" id="phoneNumberError"></div>
+            </div>
+
+            <div class="subject">
+              <label for="subject">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="Subject"
+                required
+              />
+              <div class="error hidden" id="subjectError"></div>
+            </div>
+          </div>
+
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Message"
+            rows="10"
+            required
+          ></textarea>
+          <div class="error hidden" id="messageError"></div>
+        </div>
+
+        <input
+          type="checkbox"
+          name="botcheck"
+          class="hidden"
+          style="display: none"
+        />
+        <input type="hidden" name="redirect" value="{% url 'contact' %}" />
+
+        <div class="submission">
+          <button type="submit" id="submitButton" disabled>Submit</button>
+        </div>
+      </form>
+
+      <div class="image">
+        <div class="the__image">
+          <img
+            src='{% static "images/default_images/contact__us.jpg" %}'
+            alt="Contact Us"
+          />
+        </div>
+      </div>
+    </section>
+    <section class="our__location">
+      <div class="heading" style="padding-top: 10px">
+        <h2>Find Us Here!</h2>
+      </div>
+      <div class="area__iframe">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15959.251331418458!2d34.252390399999996!3d-0.09502719999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2ske!4v1734250130295!5m2!1sen!2ske"
+          width="100%"
+          height="400px"
+          style="border: 0; border-radius: 10px"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Google Maps Location"
+        ></iframe>
+      </div>
+    </section>
+
+    <section class="more__details">
+      <div class="heading">
+        <h2>Contact Information and subscription</h2>
+      </div>
+      <div class="our__contacts">
+        <div class="contact">
+          <h2>Contact Information</h2>
+          <ul>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <strong>Email:</strong>
+              <a href="mailto:dialogueworks04@gmail.com"
+                >dialogueworks04@gmail.com</a
+              >
+            </li>
+            <li>
+              <i class="fas fa-phone"></i>
+              <strong>Phone:</strong>
+              <a href="tel:+254795535661">+254 795 535661</a>
+            </li>
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <strong>Address:</strong> P.O. Box 210 - 40601 Bondo - Siaya,
+              Kenya
+            </li>
+          </ul>
+        </div>
+
+        <div class="subscription">
+         
+        </div>
+      </div>
+    </section>
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <h6>Our Mission</h6>
+            <p class="text-justify">
+              Dialogue Works Club mission is to address the challenges and
+              issues that affect young people and to promote social and
+              environmental stability by empowering the young people with
+              knowledge on their rights and leadership skills.
+            </p>
+          </div>
+          <div class="col-6 col-md-3">
+            <h6>Categories</h6>
+            <ul class="footer-links">
+              <li><a href="#" target="_blank">Leadership Programs</a></li>
+              <li><a href="#" target="_blank">Youth Initiatives</a></li>
+              <li><a href="#" target="_blank">Community Projects</a></li>
+              <li><a href="#" target="_blank">Educational Workshops</a></li>
+              <li><a href="#" target="_blank">Webinars & Events</a></li>
+              <li><a href="#" target="_blank">Skill Development</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-3">
+            <h6>Quick Links</h6>
+            <ul class="footer-links">
+              <li><a href="#" target="_blank">About Us</a></li>
+              <li>
+                <a href="{% url 'contact' %}" target="_blank">Contact Us</a>
+              </li>
+              <li><a href="#" target="_blank">Upcoming Events</a></li>
+              <li><a href="#" target="_blank">Resources</a></li>
+              <li><a href="#" target="_blank">Our Blog</a></li>
+              <li><a href="#" target="_blank">Get Involved</a></li>
+            </ul>
+          </div>
+        </div>
+        <hr class="small" />
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-12">
+            <p class="copyright-text">
+              Copyright © 2020 All Rights Reserved by
+              <a href="/"><span class="logo">JOOUST DIALOGUE WORKS.</span></a>
+            </p>
+          </div>
+          <div class="col-md-4 col-sm-6 col-12">
+            <ul class="social-icons">
+              <li>
+                <a class="facebook" href="#" target="_blank"
+                  ><i
+                    class="fab fa-facebook-f p-2 rounded-full bg-blue-600 text-white hover:bg-blue-700"
+                  ></i
+                ></a>
+              </li>
+              <li>
+                <a class="twitter" href="#" target="_blank"
+                  ><i
+                    class="fab fa-twitter p-2 rounded-full bg-blue-400 text-white hover:bg-blue-500"
+                  ></i
+                ></a>
+              </li>
+              <li>
+                <a class="telegram" href="#" target="_blank">
+                  <i
+                    class="fab fa-telegram-plane p-2 rounded-full bg-blue-500 text-white hover:bg-blue-600"
+                  ></i>
+                </a>
+              </li>
+
+              <li>
+                <a class="linkedin" href="#" target="_blank"
+                  ><i
+                    class="fab fa-linkedin-in p-2 rounded-full bg-blue-700 text-white hover:bg-blue-800"
+                  ></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  class="whatsapp"
+                  href="https://chat.whatsapp.com/Gpjiatyey8Y2iMQYwMTEbT"
+                  target="_blank"
+                  ><i
+                    class="fab fa-whatsapp p-2 rounded-full bg-green-500 text-white hover:bg-green-600"
+                  ></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("contactForm");
+      const fields = [
+        {
+          id: "fullName",
+          pattern: /^[a-zA-Z\s]{2,50}$/,
+          errorMessage:
+            "Name must contain only letters and spaces (2-50 characters).",
+        },
+        {
+          id: "email",
+          pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/,
+          errorMessage: "Please enter a valid email address.",
+        },
+        {
+          id: "phoneNumber",
+          pattern: /^\d{9}$/,
+          errorMessage: "Phone number must contain exactly 9 digits.",
+        },
+        {
+          id: "subject",
+          pattern: /^.{1,100}$/,
+          errorMessage: "Subject must be up to 100 characters.",
+        },
+        {
+          id: "message",
+          pattern: /^.{10,500}$/,
+          errorMessage: "Message must be between 10 and 500 characters.",
+        },
+      ];
+
+      const submitButton = document.getElementById("submitButton");
+
+      fields.forEach((field) => {
+        const input = document.getElementById(field.id);
+        const errorDiv = document.getElementById(`${field.id}Error`);
+
+        input.addEventListener("input", () => {
+          validateField(input, field.pattern, errorDiv, field.errorMessage);
+          toggleSubmitButton();
+        });
+      });
+
+      function validateField(input, pattern, errorDiv, errorMessage) {
+        if (pattern.test(input.value)) {
+          errorDiv.textContent = "";
+          errorDiv.classList.add("hidden");
+          input.classList.remove("invalid");
+        } else {
+          errorDiv.textContent = errorMessage;
+          errorDiv.classList.remove("hidden");
+          input.classList.add("invalid");
+          setTimeout(() => {
+            errorDiv.textContent = "";
+            errorDiv.classList.add("hidden");
+          }, 3000);
+        }
+      }
+
+      function toggleSubmitButton() {
+        const allValid = fields.every((field) => {
+          const input = document.getElementById(field.id);
+          return field.pattern.test(input.value);
+        });
+
+        submitButton.disabled = !allValid;
+      }
+
+      const phoneNumberInput = document.getElementById("phoneNumber");
+      phoneNumberInput.addEventListener("input", () => {
+        phoneNumberInput.value = phoneNumberInput.value.replace(/[^\d]/g, ""); // Allow only digits
+      });
+
+      form.addEventListener("submit", (e) => {
+        if (submitButton.disabled) {
+          e.preventDefault();
+        }
+      });
+    });
+  </script>
+</html>
