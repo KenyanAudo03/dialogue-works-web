@@ -1,0 +1,7 @@
+body, html{
+    padding: 0;
+    margin: 0;
+}
+.area__iframe{
+    width: 100%;
+}
