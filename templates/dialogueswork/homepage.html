@@ -35,6 +35,18 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inconsolata:wght@200..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
@@ -47,6 +59,10 @@
 
     <!-- Header background image -->
     <style>
+       @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
       .hero-bg {
         background-image: linear-gradient(
             rgba(0, 0, 0, 0.6),
@@ -60,44 +76,73 @@
   </head>
   <body class="bg-white text-gray-900">
     <!-- Header/Hero Section -->
-    <header class="relative h-screen hero-bg text-white overflow-hidden">
-      <!-- Left Icon (Dialogue Works) -->
-      <div class="absolute top-4 right-4 md:flex hidden space-x-4">
-        <!-- Dialogue Works Logo -->
-        <img src="https://i.imgur.com/DMI2vnQ.jpeg" alt="Dialogue Works Logo" class="w-36 h-36 rounded-lg border-4 border-white">
-        
-        <!-- Our School Logo -->
-        <img src="https://i.imgur.com/OoaybOC.png" alt="Our School Logo" class="w-36 h-36 rounded-lg border-4 border-white">
+    <header
+      class="hero-section relative h-screen hero-bg text-white overflow-hidden"
+    >
+      <div
+        class="logo-container absolute top-4 right-4 flex space-x-4 z-10 md:flex hidden"
+      >
+        <img
+          src="https://i.imgur.com/DMI2vnQ.jpeg"
+          alt="Dialogue Works Logo"
+          class="hero-logo w-28 h-28 rounded-lg border-4 border-white shadow-md transform hover:scale-105 transition-all"
+        />
+        <img
+          src="https://i.imgur.com/OoaybOC.png"
+          alt="Our School Logo"
+          class="hero-logo w-28 h-28 rounded-lg border-4 border-white shadow-md transform hover:scale-105 transition-all"
+        />
       </div>
-      
-      <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
-        <h1 class="text-5xl md:text-6xl font-bold mb-6 tracking-tight animate-[fadeIn_1s_ease-out]">
+      <div
+        class="header-content absolute inset-0 flex flex-col justify-center items-center text-center px-4"
+      >
+        <h1
+          class="hero-heading text-5xl md:text-6xl font-bold mb-6 tracking-tight animate-[fadeIn_1s_ease-out]"
+        >
           JOOUST Dialogue Works: Nurturing Leadership and Collaboration
         </h1>
-        <p class="text-xl md:text-2xl mb-10 max-w-2xl animate-[fadeIn_1.5s_ease-out]">
-          Fostering innovation, nurturing talent, and creating conversations that unite and strengthen communities.
+        <p
+          class="hero-description text-xl md:text-2xl mb-10 max-w-2xl animate-[fadeIn_1.5s_ease-out]"
+        >
+          Fostering innovation, nurturing talent, and creating conversations
+          that unite and strengthen communities.
         </p>
-        <button class="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors animate-[fadeIn_2s_ease-out]">
+        <button
+          class="hero-button bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors animate-[fadeIn_2s_ease-out]"
+        >
           Join Us
         </button>
       </div>
-    
-      <!-- Scroll Indicator -->
-      <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 scroll-indicator text-white">
-        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <div
+        class="scroll-indicator absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="48"
+          height="48"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <path d="m6 9 6 6 6-6" />
         </svg>
       </div>
     </header>
-    
 
     <!-- Vision and Mission Section -->
     <section class="vision__mission__purpose">
+      <div class="heading">
       <h1>Our Vision, Mission, and Purpose</h1>
+    </div>
       <div class="mission__vision">
         <div class="vision">
           <div class="content">
+            
             <h2>Our <span>Vision</span></h2>
+
             <p>
               A society where young people actively contribute to positive
               change and their ideas, rights and voices are fully respected.
@@ -155,7 +200,9 @@
     </section>
 
     <section class="testimonials">
+      <div class="heading">
       <h1>OUR OFFICIALS</h1>
+    </div>
 
       <ul class="testimonials-list has-scrollbar">
         <li class="testimonials-item">
@@ -295,7 +342,10 @@
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Laborum necessitatibus dolorem tenetur! Nisi soluta nobis
                 sapiente libero sed! Cum nam sint mollitia, quis est delectus
-                nulla laudantium repellat odio modi!
+                nulla laudantium repellat odio modi! Lorem ipsum dolor sit, amet
+                consectetur adipisicing elit. Quos quae nulla odit dicta nam,
+                maxime laboriosam ut ex eius perferendis reprehenderit
+                repudiandae porro nisi officiis enim voluptate? Eius, illum ut!
               </p>
             </div>
             <div class="social__accounts">
@@ -390,7 +440,11 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Voluptas qui dignissimos id excepturi, quam labore quasi
                 inventore ratione, vel eligendi est temporibus, voluptatibus eos
-                recusandae sed saepe velit deleniti neque!
+                recusandae sed saepe velit deleniti neque! Lorem, ipsum dolor
+                sit amet consectetur adipisicing elit. Molestias quaerat
+                laudantium ad deserunt, sapiente hic illo quae non sed,
+                cupiditate quisquam voluptates aliquid inventore magnam
+                voluptatibus qui! Quisquam, quia nisi.
               </p>
             </div>
             <div class="social__accounts">
@@ -422,7 +476,7 @@
             </figure>
 
             <h4 class="h4 testimonials-item-title" data-testimonials-title>
-              Director Of Publication
+              Director Of Pub.
             </h4>
             <div class="name">
               <p>Fabian Williams</p>
@@ -433,21 +487,35 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Voluptas qui dignissimos id excepturi, quam labore quasi
                 inventore ratione, vel eligendi est temporibus, voluptatibus eos
-                recusandae sed saepe velit deleniti neque!
+                recusandae sed saepe velit deleniti neque! Lorem ipsum dolor,
+                sit amet consectetur adipisicing elit. Minus corrupti, eum,
+                saepe, ut perferendis blanditiis dolor voluptatum sed ex at
+                impedit recusandae earum labore dolorum dolores optio veniam.
+                Ab, voluptas?
               </p>
             </div>
             <div class="social__accounts">
               <ul>
                 <li>
-                  <a href=""><i class="fa-brands fa-linkedin icon"></i></a>
+                  <a
+                    href="https://www.linkedin.com/in/fabian-williams-bb2ab126a?"
+                    target="_blank"
+                    ><i class="fa-brands fa-linkedin icon"></i
+                  ></a>
                 </li>
                 <li>
-                  <a href=""
+                  <a
+                    href="https://www.instagram.com/_._fbn?igsh=MTh6cW0xZWw0ZWhscQ=="
+                    target="_blank"
                     ><i class="fa-brands fa-instagram icon instagram"></i
                   ></a>
                 </li>
                 <li>
-                  <a href=""><i class="fa-brands fa-twitter"></i></a>
+                  <a
+                    href="https://x.com/fbnwilliam?t=iPVkJUWsYqApyPvhlGS6DA&s=09"
+                    target="_blank"
+                    ><i class="fa-brands fa-twitter"></i
+                  ></a>
                 </li>
               </ul>
             </div>
@@ -457,9 +525,11 @@
     </section>
 
     <section class="w-full dialogue__pillars">
-      <div class="container mx-auto px-4">
+      <div class="mx-auto px-4">
         <div class="text-center mb-12">
+          <div class="heading">
           <h1>Our Five Pillars</h1>
+        </div>
           <p class="heading__paragraph">
             At Dialogue Works, our efforts are guided by five core pillars that
             address the most pressing challenges in our communities. Explore our
@@ -662,14 +732,16 @@
 
     <!-- Register -->
     <section class="mx-auto px-4 py-12 w-full register__now">
+      <div class="heading">
       <h1>REGISTER TODAY</h1>
+    </div>
       <div
         class="flex flex-col md:flex-row items-center justify-between w-full gap-6"
       >
         <!-- Image Section -->
         <div class="md:w-1/2 mb-6 md:mb-0">
           <img
-            src="https://i.imgur.com/fP6DSKj.jpeg"
+            src='{% static "images/default_images/Register.jpeg" %}'
             alt="Join Us"
             class="w-full h-auto rounded-lg shadow-md"
           />
@@ -685,13 +757,13 @@
           <div class="flex justify-center md:justify-start gap-6">
             <a
               href="/register"
-              class="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition"
+              class="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition no-underline"
             >
               Register
             </a>
             <a
               href="/login"
-              class="bg-gray-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-gray-700 transition"
+              class="bg-gray-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-gray-700 transition no-underline"
             >
               Login
             </a>
@@ -701,152 +773,94 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-16">
-      <div class="container mx-auto px-4 text-center md:text-left">
-        <!-- Upper Section -->
-        <div
-          class="flex flex-col md:flex-row justify-between items-center mb-12"
-        >
-          <!-- Logo and Slogan -->
-          <div class="mb-6 md:mb-0">
-            <h3 class="text-3xl font-bold mb-4 text-blue-500">Dialogues</h3>
-            <p class="text-gray-400">Nurturing Leadership and Collaboration</p>
-          </div>
-
-          <!-- Quick Links -->
-          <div
-            class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 mb-6 md:mb-0"
-          >
-            <a target="_blank"
-              href="#"
-              class="text-center hover:text-blue-400 transition-colors flex flex-col items-center"
-            >
-              <i class="fas fa-info-circle text-3xl mb-2"></i>
-              <span>About</span>
-            </a>
-
-            <a
-              href="#" target="_blank"
-              class="text-center hover:text-blue-400 transition-colors flex flex-col items-center"
-            >
-              <i class="fas fa-phone-alt text-3xl mb-2"></i>
-              <span>Contact</span>
-            </a>
-
-            <a
-              href="#" target="_blank"
-              class="text-center hover:text-blue-400 transition-colors flex flex-col items-center"
-            >
-              <i class="fas fa-project-diagram text-3xl mb-2"></i>
-              <span>Events</span>
-            </a>
-
-            <a
-              href="#" target="_blank"
-              class="text-center hover:text-blue-400 transition-colors flex flex-col items-center"
-            >
-              <i class="fas fa-calendar text-3xl mb-2"></i>
-              <span>Calender</span>
-            </a>
-
-            <a
-              href="#" target="_blank"
-              class="text-center hover:text-blue-400 transition-colors flex flex-col items-center"
-            >
-              <i class="fas fa-blog text-3xl mb-2"></i>
-              <span>Blog</span>
-            </a>
-          </div>
-
-          <!-- Newsletter Section -->
-          <div class="mb-6 md:mb-0">
-            <h4 class="text-lg font-semibold mb-2">
-              Subscribe to our Newsletter
-            </h4>
-            <form class="flex items-center justify-center md:justify-start">
-              <input
-                type="email"
-                class="bg-gray-800 text-white px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Enter your email"
-              />
-              <button
-                class="bg-blue-600 text-white px-6 py-2 rounded-r-lg hover:bg-blue-700 transition-colors"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </div>
-
-        <!-- Social Icons and Location -->
-        <div
-          class="flex flex-col md:flex-row justify-between items-center md:items-start space-y-8 md:space-y-0"
-        >
-          <!-- Social Media Icons -->
-          <div class="flex space-x-6 text-2xl">
-            <a
-              href="#"
-              class="text-gray-400 hover:text-blue-500 transition-colors"
-              target="_blank"
-            >
-              <i
-                class="fab fa-telegram-plane p-2 rounded-full bg-blue-600 text-white hover:bg-blue-700"
-              ></i>
-            </a>
-            <a
-              href="#"
-              class="text-gray-400 hover:text-blue-500 transition-colors"
-              target="_blank"
-            >
-              <i
-                class="fab fa-linkedin-in p-2 rounded-full bg-blue-700 text-white hover:bg-blue-800"
-              ></i>
-            </a>
-            <a
-              href="#"
-              class="text-gray-400 hover:text-blue-500 transition-colors"
-              target="_blank"
-            >
-              <i
-                class="fab fa-twitter p-2 rounded-full bg-blue-400 text-white hover:bg-blue-500"
-              ></i>
-            </a>
-            <a
-              href="https://chat.whatsapp.com/Gpjiatyey8Y2iMQYwMTEbT"
-              class="text-gray-400 hover:text-green-500 transition-colors"
-              target="_blank"
-            >
-              <i
-                class="fab fa-whatsapp p-2 rounded-full bg-green-500 text-white hover:bg-green-600"
-              ></i>
-            </a>
-          </div>
-
-          <!-- Contact Info -->
-          <div class="text-gray-400 text-sm md:text-left">
-            <p class="text-base">210 - 40601 Bondo, Siaya, Kenya</p>
-            <p>
-              <span class="text-white text-base">Email: </span>
-              <a
-                href="mailto:dialogueworks04@gmail.com"
-                class="text-grey-400 text-base hover:underline"
-                >dialogueworks04@gmail.com</a
-              >
-            </p>
-            <p>
-              <span class="text-white text-base">Phone: </span>
-              <a
-                href="tel:+254795535661"
-                class="text-gray-400 text-base hover:underline"
-                >+254 795 535661</a
-              >
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <h6>Our Mission</h6>
+            <p class="text-justify">
+              Dialogue Works Club mission is to address the challenges and
+              issues that affect young people and to promote social and
+              environmental stability by empowering the young people with
+              knowledge on their rights and leadership skills.
             </p>
           </div>
+          <div class="col-6 col-md-3">
+            <h6>Categories</h6>
+            <ul class="footer-links">
+              <li><a href="#" target="_blank">Leadership Programs</a></li>
+              <li><a href="#" target="_blank">Youth Initiatives</a></li>
+              <li><a href="#" target="_blank">Community Projects</a></li>
+              <li><a href="#" target="_blank">Educational Workshops</a></li>
+              <li><a href="#" target="_blank">Webinars & Events</a></li>
+              <li><a href="#" target="_blank">Skill Development</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-3">
+            <h6>Quick Links</h6>
+            <ul class="footer-links">
+              <li><a href="#" target="_blank">About Us</a></li>
+              <li><a href="{% url 'contact' %}" target="_blank">Contact Us</a></li>
+              <li><a href="#" target="_blank">Upcoming Events</a></li>
+              <li><a href="#" target="_blank">Resources</a></li>
+              <li><a href="#" target="_blank">Our Blog</a></li>
+              <li><a href="#" target="_blank">Get Involved</a></li>
+            </ul>
+          </div>
         </div>
+        <hr class="small" />
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-12">
+            <p class="copyright-text">
+              Copyright © 2020 All Rights Reserved by
+              <a href="/"><span class="logo">JOOUST DIALOGUE WORKS.</span></a>
+            </p>
+          </div>
+          <div class="col-md-4 col-sm-6 col-12">
+            <ul class="social-icons">
+              <li>
+                <a class="facebook" href="#" target="_blank"
+                  ><i
+                    class="fab fa-facebook-f p-2 rounded-full bg-blue-600 text-white hover:bg-blue-700"
+                  ></i
+                ></a>
+              </li>
+              <li>
+                <a class="twitter" href="#" target="_blank"
+                  ><i
+                    class="fab fa-twitter p-2 rounded-full bg-blue-400 text-white hover:bg-blue-500"
+                  ></i
+                ></a>
+              </li>
+              <li>
+                <a class="telegram" href="#" target="_blank">
+                  <i
+                    class="fab fa-telegram-plane p-2 rounded-full bg-blue-500 text-white hover:bg-blue-600"
+                  ></i>
+                </a>
+              </li>
 
-        <!-- Footer Bottom -->
-        <div class="border-t border-gray-700 mt-8 pt-6 text-sm text-gray-400">
-          © 2024 Dialogues. All rights reserved.
+              <li>
+                <a class="linkedin" href="#" target="_blank"
+                  ><i
+                    class="fab fa-linkedin-in p-2 rounded-full bg-blue-700 text-white hover:bg-blue-800"
+                  ></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  class="whatsapp"
+                  href="https://chat.whatsapp.com/Gpjiatyey8Y2iMQYwMTEbT"
+                  target="_blank"
+                  ><i
+                    class="fab fa-whatsapp p-2 rounded-full bg-green-500 text-white hover:bg-green-600"
+                  ></i
+                ></a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </footer>
