@@ -45,18 +45,6 @@ html {
   }
 }
 
-.header__menu {
-  margin-top: -12px;
-}
-.header__menu h1 {
-  text-transform: uppercase;
-  font-weight: bold;
-  padding-bottom: 3px;
-  position: relative;
-  display: inline-block;
-  color: darkblue;
-}
-
 .how_we_can_help {
   padding: 1.5rem;
   background-color: #f8f9fa;
@@ -75,7 +63,9 @@ html {
   gap: 1rem;
   margin-top: 0.5rem;
 }
-
+#contactForm {
+  margin-top: 10px;
+}
 .help__item {
   background: #ffffff;
   border-radius: 8px;
@@ -163,15 +153,20 @@ body::-webkit-scrollbar-track {
 .our__location .heading {
   margin-bottom: 5px;
 }
-.contact__form .heading {
+.contact__form .heading,
+.how_we_can_help .heading {
   margin-bottom: 10px;
 }
 .more__details .heading {
   text-align: center;
 }
+.how_we_can_help .heading {
+  text-align: center;
+}
 .contact__form h2,
 .our__location h2,
-.more__details h2 {
+.more__details h2,
+.how_we_can_help h2 {
   font-size: 32px;
   margin-bottom: 5px;
   font-family: "Bebas Neue", sans-serif;
@@ -183,7 +178,8 @@ body::-webkit-scrollbar-track {
 }
 .contact__form h2::before,
 .our__location h2::before,
-.more__details h2::before {
+.more__details h2::before,
+.how_we_can_help h2::before {
   content: "";
   width: 100%;
   height: 3px;
@@ -193,7 +189,8 @@ body::-webkit-scrollbar-track {
 }
 .contact__form h2:after,
 .our__location h2:after,
-.more__details h2:after {
+.more__details h2:after,
+.how_we_can_help h2:after {
   content: "";
   width: 50%;
   height: 3px;
@@ -401,5 +398,151 @@ body::-webkit-scrollbar-track {
   .our__contacts .contact,
   .our__contacts .subscription {
     flex: 1 1 100%;
+  }
+}
+
+/* Navbar */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+/* Root variables */
+:root {
+  --color-1: #0f1016;
+  --text-color: #f0f0f0;
+  --accent-color: lightgreen;
+}
+
+/* Navbar styles */
+nav {
+  position: fixed; /* Fixed at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75px;
+  background-color: var(--color-1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 1000;
+  font-family: "Poppins", sans-serif;
+}
+main {
+  margin-top: 75px;
+}
+
+.links-container {
+  display: flex;
+  align-items: center;
+  margin-right: 4px;
+}
+
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 0 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.sign__up {
+  border: 1px solid #ccc;
+  background-color: #28a745;
+  padding: 4px 18px;
+  margin-left: 5px;
+}
+.sign__up:hover {
+  transform: translateY(0);
+  color: #fff;
+}
+nav a span {
+  margin-left: 3px;
+}
+.active__link {
+  color: var(--accent-color);
+  font-weight: bolder;
+}
+
+nav a:hover {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+nav .home-link {
+  margin-right: auto;
+  font-size: larger;
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+nav .home-link:hover {
+  color: var(--text-color);
+  transform: translateY(0);
+  text-decoration: none;
+}
+
+nav svg {
+  fill: var(--text-color);
+}
+
+.open-sidebar-button,
+.close-sidebar-button {
+  display: none;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .links-container {
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    background-color: var(--color-1);
+    transition: right 0.5s ease;
+    box-shadow: -5px 0 5px rgba(0, 0, 0, 0.3);
+  }
+
+  nav a {
+    width: 100%;
+    padding: 15px 20px;
+    box-sizing: border-box;
+  }
+
+  .open-sidebar-button,
+  .close-sidebar-button {
+    display: block;
+    padding: 20px;
+    cursor: pointer;
+  }
+
+  #sidebar-active:checked ~ .links-container {
+    right: 0;
+  }
+
+  #sidebar-active:checked ~ #overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 900;
   }
 }
