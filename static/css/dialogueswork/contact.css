@@ -546,3 +546,6 @@ nav svg {
     z-index: 900;
   }
 }
+.footer-links, .text-justify{
+  margin-top: 8px;
+}

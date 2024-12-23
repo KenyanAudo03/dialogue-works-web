@@ -1,0 +1,106 @@
+<!-- registration_step_two.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step 2: Email Verification</title>
+    <link
+      rel="stylesheet"
+      href="{% static 'css/authentication/register_acc.css'%}"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- <div class="container">
+      <h2>Email Verification</h2>
+
+      <p>
+        Please check your email inbox. We have sent you a verification link.
+        Once you click the link in the email, your account will be verified.
+      </p>
+
+      <p>
+        If you haven't received an email, please check your spam folder or
+        <a href="{% url 'authentication:register_step_one' %}">try again</a>.
+      </p>
+    </div> -->
+    <style>
+      .rules {
+        background-color: #fff;
+        color: #000;
+      }
+      .reg__form {
+        background-color: #00ff9d;
+      }
+    </style>
+    <div class="registration">
+      <div class="rules">
+        <div class="logo">JOOUST DIALOGUE WORKS</div>
+        <div class="signup-steps">
+          <div class="step active completed_creation">
+            <div class="step-icon">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="text">1. Create account</div>
+          </div>
+          <div class="step active">
+            <div class="step-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="text">2. Verify email</div>
+          </div>
+          <div class="step">
+            <div class="step-icon">
+              <i class="fas fa-lock-open"></i>
+            </div>
+            <div class="text">3. Verify phone number</div>
+          </div>
+        </div>
+        <div class="verify__email">
+          <h1>Verify your email</h1>
+          <h3>You are almost There!</h3>
+          <p>We have sent an email to <span>{{ user_data.email }}</span></p>
+        </div>
+        <div class="steps_to_verify">
+          <ol>
+            <li>
+              Go to your <span> mail box</span> and open
+              <span> the email we have just sent you.</span>
+            </li>
+            <li>
+              <span>Click </span> the link to <span>Verify</span> your email
+            </li>
+          </ol>
+        </div>
+        <div class="link__not_received">
+          <p>
+            Haven't received the email from us? <a href="">Resend email.</a>
+          </p>
+
+          <a href="" class="edit_email">Go back and edit email</a>
+        </div>
+      </div>
+      <div class="reg__form">
+        <div class="mail__box">
+          <img
+            src='{% static "images/default_images/email__received.png" %}'
+            alt="email_received"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

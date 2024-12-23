@@ -1,4 +1,8 @@
 /* Hide the div by default */
+html {
+  scroll-behavior: smooth;
+}
+
 .default_logos {
   display: none;
 }

@@ -1,0 +1,243 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step 1: Registration</title>
+    <link
+      rel="stylesheet"
+      href="{% static 'css/authentication/register_acc.css'%}"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="registration">
+      <div class="rules">
+        <div class="logo">JOOUST DIALOGUE WORKS</div>
+        <h2>Welcome to JOOUST DIALOGUE WORKS!</h2>
+        <div class="features">
+          <div class="feature-card">
+            <div>
+              <i class="fas fa-graduation-cap"></i>
+              <p>Quality Education</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div>
+              <i class="fas fa-shield-alt"></i>
+              <p>Tackling Insecurity</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div>
+              <i class="fas fa-pills"></i>
+              <p>Combating Drug Abuse</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div>
+              <i class="fas fa-lightbulb"></i>
+              <p>Driving Innovation</p>
+            </div>
+          </div>
+        </div>
+        <div class="all_rules">
+          <div class="api-list">
+            <div>Jooust Dialogue Works Signup Rules:</div>
+            <div class="api-item">
+              Use a valid phone number for SMS, WhatsApp, and 2FA verification.
+            </div>
+            <div class="api-item">
+              Provide accurate personal information during signup.
+            </div>
+            <div class="api-item">
+              Verify your email and phone number to activate your account.
+            </div>
+            <div class="api-item">
+              Set a strong password with a mix of letters, numbers, and symbols.
+            </div>
+            <div class="api-item">
+              Engage respectfully with others on all communication channels.
+            </div>
+            <div class="api-item">
+              Avoid spamming or sending unsolicited messages.
+            </div>
+            <div class="api-item">
+              Obtain consent before recording or sharing content.
+            </div>
+            <div class="api-item">
+              Follow local and international laws in all interactions.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reg__form">
+        <div class="thee_steps">
+          <div class="signup-steps">
+            <div class="step active">
+              <div class="step-icon">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="text">1. Create account</div>
+            </div>
+            <div class="step">
+              <div class="step-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="text">2. Verify email</div>
+            </div>
+            <div class="step">
+              <div class="step-icon">
+                <i class="fas fa-lock-open"></i>
+              </div>
+              <div class="text">3. Verify phone number</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="create__acc">
+          <div>
+            <h1>Sign up for a Jooust Dialogue Works account</h1>
+            <p class="helper-text">
+              Already have an account?
+              <a href="#" style="color: #00ff9d">Log in</a>
+            </p>
+
+            <form method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="email">Email</label>
+                <div class="input-wrapper">
+                  {{ form.email }}
+                  <span class="email-icon" id="email-icon"></span>
+                </div>
+              </div>
+
+              <div class="first__second_name">
+                <div class="form-group">
+                  <label for="first_name">First Name</label>
+                  {{ form.first_name }}
+                </div>
+
+                <div class="form-group">
+                  <label for="last_name">Last Name</label>
+                  {{ form.last_name }}
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="phone_number">Phone Number</label>
+                {{ form.phone_number }}
+              </div>
+              <div class="reg__course">
+                <div class="form-group">
+                  <label for="course">Course</label>
+                  {{ form.course }}
+                </div>
+
+                <div class="form-group">
+                  <label for="reg_number">Registration Number</label>
+                  {{ form.reg_number }}
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-wrapper">
+                  {{ form.password }}
+                  <button
+                    type="button"
+                    class="toggle-password"
+                    id="toggle-password"
+                    style="display: none"
+                  >
+                    <i class="fa fa-eye"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="confirm_password">Confirm Password</label>
+                <div class="input-wrapper">
+                  {{ form.confirm_password }}
+                  <button
+                    type="button"
+                    class="toggle-password"
+                    id="toggle-confirm-password"
+                    style="display: none"
+                  >
+                    <i class="fa fa-eye"></i>
+                  </button>
+                </div>
+              </div>
+
+              <button type="submit" class="next__btn">Next</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    function togglePasswordVisibility(inputSelector, buttonSelector) {
+      const inputField = document.querySelector(inputSelector);
+      const button = document.querySelector(buttonSelector);
+      const icon = button.querySelector("i");
+
+      inputField.addEventListener("input", function () {
+        if (inputField.value.length > 0) {
+          button.style.display = "inline";
+        } else {
+          button.style.display = "none";
+        }
+      });
+
+      button.addEventListener("click", function () {
+        if (inputField.type === "password") {
+          inputField.type = "text";
+          icon.classList.remove("fa-eye");
+          icon.classList.add("fa-eye-slash");
+        } else {
+          inputField.type = "password";
+          icon.classList.remove("fa-eye-slash");
+          icon.classList.add("fa-eye");
+        }
+      });
+    }
+
+    togglePasswordVisibility('[name="password"]', "#toggle-password");
+    togglePasswordVisibility(
+      '[name="confirm_password"]',
+      "#toggle-confirm-password"
+    );
+  </script>
+  <script>
+    const emailInput = document.getElementById("email");
+    const emailIcon = document.getElementById("email-icon");
+
+    // Real-time email validation
+    emailInput.addEventListener("input", function () {
+      const emailValue = emailInput.value;
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+      if (emailRegex.test(emailValue)) {
+        emailIcon.innerHTML = "&#10003;";
+        emailIcon.style.color = "green";
+      } else {
+        emailIcon.innerHTML = "&#10005;";
+        emailIcon.style.color = "red";
+      }
+    });
+  </script>
+</html>
