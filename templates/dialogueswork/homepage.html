@@ -100,15 +100,15 @@
         />
       </div>
       <div
-        class="header-content absolute inset-0 flex flex-col justify-center items-center text-center px-4"
+        class="header-content absolute inset-0 flex flex-col justify-center items-start text-left px-4 md:px-16"
       >
         <h1
           class="hero-heading text-5xl md:text-6xl font-bold mb-6 tracking-tight animate-[fadeIn_1s_ease-out]"
         >
-          JOOUST Dialogue Works: Nurturing Leadership and Collaboration
+          JOOUST Dialogue Works: Nurturing Leadership and Collaboration.
         </h1>
         <p
-          class="hero-description text-xl md:text-2xl mb-10 max-w-2xl animate-[fadeIn_1.5s_ease-out]"
+          class="hero-description text-xl md:text-2xl mb-10 animate-[fadeIn_1.5s_ease-out] font-bold  max-w-4xl"
         >
           Fostering innovation, nurturing talent, and creating conversations
           that unite and strengthen communities.
@@ -204,7 +204,7 @@
       </div>
     </section>
 
-    <section class="testimonials">
+    <section class="testimonials" id="testimonials" style="margin-top: 10px">
       <div class="heading">
         <h1>OUR OFFICIALS</h1>
       </div>
@@ -809,7 +809,7 @@
           <div class="col-6 col-md-3">
             <h6>Quick Links</h6>
             <ul class="footer-links">
-              <li><a href="#" target="_blank">About Us</a></li>
+              <li><a href="{% url 'about' %}" target="_blank">About Us</a></li>
               <li>
                 <a href="{% url 'contact' %}" target="_blank">Contact Us</a>
               </li>
