@@ -1,0 +1,38 @@
+<!-- registration_step_three.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Verification - Step 3</title>
+
+</head>
+<body>
+
+    <div class="container">
+        <h2>Phone Verification</h2>
+
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert alert-info">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <p>Please enter your phone number to verify your account.</p>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Verify Phone Number</button>
+        </form>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
