@@ -1,0 +1,383 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JOOUST Dialogue Works - About Page</title>
+    <link rel="stylesheet" href="{% static 'css/dialogueswork/contact.css'%}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inconsolata:wght@200..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/dialogueswork/homepage.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'css/dialogueswork/about.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- Header background image -->
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .hero-bg {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)
+          ),
+          url('{% static "images/default_images/Dialogue_Homepage.jpeg" %}');
+        background-size: cover;
+        background-position: center;
+      }
+      .blur-overlay {
+        background: rgba(0, 0, 0, 0.5); /* Dark translucent background */
+        backdrop-filter: blur(8px); /* Adjust blur intensity */
+        z-index: 1;
+      }
+      .header-content {
+        z-index: 2;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <input type="checkbox" id="sidebar-active" style="display: none" />
+      <label for="sidebar-active" class="open-sidebar-button">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="32"
+          viewBox="0 -960 960 960"
+          width="32"
+        >
+          <path
+            d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
+          />
+        </svg>
+      </label>
+      <label id="overlay" for="sidebar-active"></label>
+      <div class="links-container">
+        <label for="sidebar-active" class="close-sidebar-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="32"
+            viewBox="0 -960 960 960"
+            width="32"
+          >
+            <path
+              d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+            />
+          </svg>
+        </label>
+
+        <a class="home-link" href="/">DIALOGUE WORKS</a>
+        <a href="{% url 'about' %}" class="active__link">About</a>
+        <a href="{% url 'contact' %}">Contact Us</a>
+        <a href="">Blog</a>
+        <a href="{% url 'authentication:login'%}">Login</a>
+        <a href="{% url 'authentication:register_step_one'%}" class="sign__up"
+          >Register <span> Now</span></a
+        >
+      </div>
+    </nav>
+    <main>
+      <header
+        class="hero-section relative h-screen hero-bg text-white overflow-hidden"
+      >
+        <div class="blur-overlay absolute top-0 left-0 h-full w-0.9"></div>
+
+        <div
+          class="header-content absolute inset-0 flex flex-col justify-center items-start text-left px-4 md:px-16"
+        >
+          <h1
+            class="hero-heading text-5xl md:text-6xl font-bold mb-6 tracking-tight animate-[fadeIn_1s_ease-out] max-w-4xl"
+          >
+            About JOOUST Dialogue Works: Empowering Young Leaders.
+          </h1>
+          <div class="button-group flex space-x-4">
+            <button
+              class="hero-button bg-blue-600 text-white px-10 py-2 text-lg font-semibold hover:bg-blue-700 transition-colors animate-[fadeIn_2s_ease-out] more-indicator"
+            >
+              Learn More
+            </button>
+            <button
+              class="hero-button text-white px-8 py-2 text-lg font-semibold hover:bg-gray-700 transition-colors animate-[fadeIn_2s_ease-out] border-2 border-white"
+            >
+              Join Us
+            </button>
+          </div>
+        </div>
+      </header>
+      <script>
+        document
+          .querySelector(".more-indicator")
+          .addEventListener("click", () => {
+            const targetElement = document.querySelector(
+              ".what__dialugueworks__entiles"
+            );
+            const headerHeight = document.querySelector("header").offsetHeight;
+
+            // Calculate the target scroll position (the position of the element minus the header height)
+            const targetPosition = targetElement.offsetTop - 97;
+
+            // Scroll to the calculated position smoothly
+            window.scrollTo({
+              top: targetPosition,
+              behavior: "smooth",
+            });
+          });
+      </script>
+
+      <section class="what__dialugueworks__entiles">
+        <div class="about">
+          <div class="heading">
+            <h1>About</h1>
+          </div>
+          <div
+            class="start__paragraph flex justify-center items-center text-center w-full max-w-xl mx-auto"
+          >
+            <p>
+              "Dialogue Works Club is a youth club dedicated to fostering
+              leadership skills and empowering young people in Siaya, Kenya. We
+              believe that young people have a powerful voice and deserve to be
+              heard."
+            </p>
+          </div>
+          <div class="articles__images">
+            <div class="article">
+              <div class="left__article">
+                <p>
+                  <span>Become effective leaders</span>: We collaborate with
+                  other organizations to provide workshops and training sessions
+                  that develop leadership skills like communication,
+                  collaboration, and problem-solving.
+                </p>
+                <p>
+                  <span> Understand their rights</span>: We educate young people
+                  about their rights and responsibilities, empowering them to
+                  advocate for themselves and their communities.
+                </p>
+              </div>
+              <div class="right__article">
+                <p>
+                  <span>Amplify their voices</span>: We offer a platform for
+                  young people to express their ideas and concerns, fostering
+                  dialogue and positive change. Dialogue Works Club is a space
+                  where young people can connect, learn, and grow.
+                </p>
+                <p>
+                  We believe in the power of youth to make a difference in the
+                  world. Join us and be part of the change!!!
+                </p>
+              </div>
+            </div>
+            <div class="article__image">
+              <img
+                src="{% static 'images/default_images/Register.jpeg' %}"
+                alt="Join Us"
+                class="w-full shadow-md"
+              />
+            </div>
+            <div class="article" style="margin-top: 30px">
+              <div class="left__article">
+                <h1>Our Vision</h1>
+                <p>
+                  A society where young people actively contribute to positive
+                  change and their ideas, rights and voices are fully respected.
+                </p>
+              </div>
+              <div class="right__article">
+                <h1>Our Mission</h1>
+                <p>
+                  Dialogue Works Club mission is to address the challenges and
+                  issues that affect young people and to promote social and
+                  environmental stability by empowering the young people with
+                  knowledge on their rights and leadership skills.
+                </p>
+              </div>
+              <div class="right__article">
+                <h1>Our Purpose</h1>
+                <p>
+                  To help youth prepare for their future roles, develop their
+                  talents and interests, learn leadership skills, and foster
+                  friendships and networks as they interact with other
+                  individuals across the regions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="about-president bg-gray-100">
+        <div class="president__about">
+          <div class="text">
+            <h2 class="text-3xl font-bold mb-4 text-green-600">
+              President of Dialogue Works
+            </h2>
+            <p class="text-lg text-gray-700">
+              Meet Yare Phenyle, the visionary leader of Dialogue Works Club.
+              With a strong commitment to empowering youth and promoting
+              leadership skills, Yare Phenyle has been instrumental in shaping
+              the mission of Dialogue Works. Under her leadership, the
+              organization has expanded its reach and impact, helping young
+              people find their voice and make a difference in the communities.
+            </p>
+            <div class="other__leaders">
+              <a href="/#testimonials">Other officials</a>
+            </div>
+          </div>
+          <div class="image">
+            <img
+              src='{% static "images/default_images/President.jpeg" %}'
+              alt="President"
+            />
+          </div>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <h6>Our Mission</h6>
+              <p class="text-justify">
+                Dialogue Works Club mission is to address the challenges and
+                issues that affect young people and to promote social and
+                environmental stability by empowering the young people with
+                knowledge on their rights and leadership skills.
+              </p>
+            </div>
+            <div class="col-6 col-md-3">
+              <h6>Categories</h6>
+              <ul class="footer-links">
+                <li><a href="#" target="_blank">Leadership Programs</a></li>
+                <li><a href="#" target="_blank">Youth Initiatives</a></li>
+                <li><a href="#" target="_blank">Community Projects</a></li>
+                <li><a href="#" target="_blank">Educational Workshops</a></li>
+                <li><a href="#" target="_blank">Webinars & Events</a></li>
+                <li><a href="#" target="_blank">Skill Development</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-md-3">
+              <h6>Quick Links</h6>
+              <ul class="footer-links">
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li>
+                  <a href="{% url 'contact' %}">Contact Us</a>
+                </li>
+                <li><a href="#" target="_blank">Upcoming Events</a></li>
+                <li><a href="#" target="_blank">Resources</a></li>
+                <li><a href="#" target="_blank">Our Blog</a></li>
+                <li>
+                  <a
+                    href="{% url 'authentication:register_step_one'%}"
+                    target="_blank"
+                    >Get Involved</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <hr class="small" />
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-sm-6 col-12">
+              <p class="copyright-text">
+                Copyright © 2024 All Rights Reserved by
+                <a href="/"><span class="logo">JOOUST DIALOGUE WORKS.</span></a>
+              </p>
+            </div>
+            <div class="col-md-4 col-sm-6 col-12">
+              <ul class="social-icons">
+                <li>
+                  <a class="facebook" href="#" target="_blank"
+                    ><i
+                      class="fab fa-facebook-f p-2 rounded-full bg-blue-600 text-white hover:bg-blue-700"
+                    ></i
+                  ></a>
+                </li>
+                <li>
+                  <a class="twitter" href="#" target="_blank"
+                    ><i
+                      class="fab fa-twitter p-2 rounded-full bg-blue-400 text-white hover:bg-blue-500"
+                    ></i
+                  ></a>
+                </li>
+                <li>
+                  <a class="telegram" href="#" target="_blank">
+                    <i
+                      class="fab fa-telegram-plane p-2 rounded-full bg-blue-500 text-white hover:bg-blue-600"
+                    ></i>
+                  </a>
+                </li>
+
+                <li>
+                  <a class="linkedin" href="#" target="_blank"
+                    ><i
+                      class="fab fa-linkedin-in p-2 rounded-full bg-blue-700 text-white hover:bg-blue-800"
+                    ></i
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    class="whatsapp"
+                    href="https://chat.whatsapp.com/Gpjiatyey8Y2iMQYwMTEbT"
+                    target="_blank"
+                    ><i
+                      class="fab fa-whatsapp p-2 rounded-full bg-green-500 text-white hover:bg-green-600"
+                    ></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>

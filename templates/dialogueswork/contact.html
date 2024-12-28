@@ -39,9 +39,9 @@
       rel="stylesheet"
     />
     <link
-    href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-    rel="stylesheet"
-  />
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <nav>
@@ -74,11 +74,13 @@
         </label>
 
         <a class="home-link" href="/">DIALOGUE WORKS</a>
-        <a href="">About</a>
+        <a href="{% url 'about' %}">About</a>
         <a href="{% url 'contact' %}" class="active__link">Contact Us</a>
         <a href="">Blog</a>
-        <a href="">Login</a>
-        <a href="" class="sign__up">Register <span> Free</span></a>
+        <a href="{% url 'authentication:login'%}">Login</a>
+        <a href="{% url 'authentication:register_step_one'%}" class="sign__up"
+          >Register <span> Now</span></a
+        >
       </div>
     </nav>
 
@@ -283,7 +285,8 @@
           </div>
 
           <div class="subscription">
-            
+            <!-- Subscription Iframe -->
+      
           </div>
         </div>
       </section>
@@ -313,14 +316,20 @@
             <div class="col-6 col-md-3">
               <h6>Quick Links</h6>
               <ul class="footer-links">
-                <li><a href="#" target="_blank">About Us</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
                 <li>
-                  <a href="{% url 'contact' %}" target="_blank">Contact Us</a>
+                  <a href="{% url 'contact' %}">Contact Us</a>
                 </li>
                 <li><a href="#" target="_blank">Upcoming Events</a></li>
                 <li><a href="#" target="_blank">Resources</a></li>
                 <li><a href="#" target="_blank">Our Blog</a></li>
-                <li><a href="#" target="_blank">Get Involved</a></li>
+                <li>
+                  <a
+                    href="{% url 'authentication:register_step_one'%}"
+                    target="_blank"
+                    >Get Involved</a
+                  >
+                </li>
               </ul>
             </div>
           </div>
@@ -382,67 +391,86 @@
       </footer>
     </main>
   </body>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("contactForm");
-  const fields = [
-    { id: "fullName", pattern: /^[a-zA-Z\s]{2,50}$/, errorMessage: "Name must contain only letters and spaces (2-50 characters)." },
-    { id: "email", pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/, errorMessage: "Please enter a valid email address." },
-    { id: "phoneNumber", pattern: /^\d{9}$/, errorMessage: "Phone number must contain exactly 9 digits." },
-    { id: "subject", pattern: /^.{1,100}$/, errorMessage: "Subject must be up to 100 characters." },
-    { id: "message", pattern: /^.{10,500}$/, errorMessage: "Message must be between 10 and 500 characters." },
-  ];
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("contactForm");
+      const fields = [
+        {
+          id: "fullName",
+          pattern: /^[a-zA-Z\s]{2,50}$/,
+          errorMessage:
+            "Name must contain only letters and spaces (2-50 characters).",
+        },
+        {
+          id: "email",
+          pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/,
+          errorMessage: "Please enter a valid email address.",
+        },
+        {
+          id: "phoneNumber",
+          pattern: /^\d{9}$/,
+          errorMessage: "Phone number must contain exactly 9 digits.",
+        },
+        {
+          id: "subject",
+          pattern: /^.{1,100}$/,
+          errorMessage: "Subject must be up to 100 characters.",
+        },
+        {
+          id: "message",
+          pattern: /^.{10,500}$/,
+          errorMessage: "Message must be between 10 and 500 characters.",
+        },
+      ];
 
-  const submitButton = document.getElementById("submitButton");
+      const submitButton = document.getElementById("submitButton");
 
-  fields.forEach((field) => {
-    const input = document.getElementById(field.id);
-    const errorDiv = document.getElementById(`${field.id}Error`);
+      fields.forEach((field) => {
+        const input = document.getElementById(field.id);
+        const errorDiv = document.getElementById(`${field.id}Error`);
 
-    input.addEventListener("input", () => {
-      if (input.value === "") {
-        errorDiv.textContent = "";
-        errorDiv.classList.add("hidden");
-        input.classList.remove("invalid");
-      } else {
-        validateField(input, field.pattern, errorDiv, field.errorMessage);
+        input.addEventListener("input", () => {
+          if (input.value === "") {
+            errorDiv.textContent = "";
+            errorDiv.classList.add("hidden");
+            input.classList.remove("invalid");
+          } else {
+            validateField(input, field.pattern, errorDiv, field.errorMessage);
+          }
+          toggleSubmitButton();
+        });
+      });
+
+      function validateField(input, pattern, errorDiv, errorMessage) {
+        if (pattern.test(input.value)) {
+          errorDiv.textContent = "";
+          errorDiv.classList.add("hidden");
+          input.classList.remove("invalid");
+        } else {
+          errorDiv.textContent = errorMessage;
+          errorDiv.classList.remove("hidden");
+          input.classList.add("invalid");
+        }
       }
-      toggleSubmitButton();
+
+      function toggleSubmitButton() {
+        const allValid = fields.every((field) => {
+          const input = document.getElementById(field.id);
+          return field.pattern.test(input.value);
+        });
+        submitButton.disabled = !allValid;
+      }
+
+      const phoneNumberInput = document.getElementById("phoneNumber");
+      phoneNumberInput.addEventListener("input", () => {
+        phoneNumberInput.value = phoneNumberInput.value.replace(/[^\d]/g, "");
+      });
+
+      form.addEventListener("submit", (e) => {
+        if (submitButton.disabled) {
+          e.preventDefault();
+        }
+      });
     });
-  });
-
-  function validateField(input, pattern, errorDiv, errorMessage) {
-    if (pattern.test(input.value)) {
-      errorDiv.textContent = "";
-      errorDiv.classList.add("hidden");
-      input.classList.remove("invalid");
-    } else {
-      errorDiv.textContent = errorMessage;
-      errorDiv.classList.remove("hidden");
-      input.classList.add("invalid");
-    }
-  }
-
-  function toggleSubmitButton() {
-    const allValid = fields.every((field) => {
-      const input = document.getElementById(field.id);
-      return field.pattern.test(input.value);
-    });
-    submitButton.disabled = !allValid;
-  }
-
-  const phoneNumberInput = document.getElementById("phoneNumber");
-  phoneNumberInput.addEventListener("input", () => {
-    phoneNumberInput.value = phoneNumberInput.value.replace(/[^\d]/g, "");
-  });
-
-  form.addEventListener("submit", (e) => {
-    if (submitButton.disabled) {
-      e.preventDefault();
-    }
-  });
-});
-
-</script>
- 
+  </script>
 </html>

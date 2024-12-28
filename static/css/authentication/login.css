@@ -1,0 +1,201 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+.registration {
+  display: flex;
+  height: 100vh;
+}
+* {
+  box-sizing: border-box;
+}
+.rules,
+.reg__form {
+  flex: 1;
+  padding: 20px;
+}
+.rules {
+  background-color: #fff;
+  color: #000;
+}
+.logo {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  font-family: "Lilita One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.rules h2 {
+  font-family: "Roboto Condensed", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-size: 40px;
+}
+.login__form {
+  margin-top: 40px;
+}
+.login__form label {
+  font-weight: 500;
+  font-size: 18px;
+}
+.login__form input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  border-radius: 8px;
+  outline: none !important;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease-in-out;
+  background-color: #f9f9f9;
+  margin-bottom: 4px;
+}
+
+.login__form input:hover {
+  background-color: #ffffff;
+  border-color: lightgreen;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+.login__form input:focus {
+  background-color: #ffffff;
+  border-color: lightgreen;
+  box-shadow: 0 0 10px rgba(0, 86, 179, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+.signup-prompt {
+  font-size: 1rem;
+  color: #333;
+  margin: 20px 0;
+}
+
+.signup-link {
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: underline;
+  transition: color 0.3s ease-in-out;
+}
+
+.signup-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+.forgot {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.forgot-link {
+  font-size: 1rem;
+  color: #007bff;
+  text-decoration: underline;
+  transition: color 0.3s ease-in-out;
+}
+
+.forgot-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+.login__form button {
+  padding: 8px 20px;
+  margin-top: 10px;
+  outline: none;
+  border-radius: 8px;
+  background-color: lightgreen;
+  font-size: 17px;
+  border: 1px solid transparent;
+  font-weight: 500;
+  cursor: not-allowed;
+}
+.login__form button:hover {
+  background-color: #ffffff;
+  border: 1px solid lightgreen;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+.create__acc {
+  flex: 2;
+  background-color: lightcyan;
+  position: relative;
+  overflow: hidden;
+}
+
+.image_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.image_container img {
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+}
+
+.overlay_text {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: lightgreen;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: 1;
+  font-weight: bolder;
+}
+/* General style for the messages container */
+.messages {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  font-size: 1rem;
+}
+
+/* Style for danger (error) messages */
+.message.error,
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  padding: 16px 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+input:focus:invalid {
+    border: 1px solid red;
+  }
+
+  input:focus:valid {
+    border: 1px solid green;
+  }
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+#password {
+  width: 100%;
+  padding-right: 30px; 
+}
+
+#togglePassword {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #000;
+  cursor: pointer;
+}
+
+#togglePassword:focus {
+  outline: none;
+}

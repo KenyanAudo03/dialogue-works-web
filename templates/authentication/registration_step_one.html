@@ -112,7 +112,9 @@
             <h1>Sign up for a Jooust Dialogue Works account</h1>
             <p class="helper-text">
               Already have an account?
-              <a href="#" style="color: #00ff9d">Log in</a>
+              <a href="{% url 'authentication:login'%}" style="color: #00ff9d"
+                >Log in</a
+              >
             </p>
 
             <form method="POST" enctype="multipart/form-data">
