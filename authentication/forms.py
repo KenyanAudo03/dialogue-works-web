@@ -55,3 +55,25 @@ class PhoneVerificationForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ["phone_number"]
+
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = [
+            "first_name",
+            "last_name",
+            "email",
+            "phone_number",
+            "profile_picture",
+            "bio",
+            "gender",
+            "year_of_studies",
+            "date_of_birth",
+            "course",
+            "reg_number",
+            "interests",
+        ]
+        widgets = {
+            "bio": forms.Textarea(attrs={"rows": 3}),
+        }

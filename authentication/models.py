@@ -2,23 +2,24 @@ from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.db import models
 from django.utils.timezone import now
 
+
 class Interest(models.Model):
     name = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name
-        
+
 class UserProfile(AbstractUser):
     # Remove password field since it's already in AbstractUser
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    course = models.CharField(max_length=100)
-    reg_number = models.CharField(max_length=100)
+    course = models.CharField(max_length=100, blank=True, null=True)
+    reg_number = models.CharField(max_length=100, blank=True, null=True)
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=150, unique=True, blank=True, null=True)
     phone_number = models.CharField(max_length=15, blank=True, null=True)
     whatsapp_verified = models.BooleanField(default=False)
-    interests = models.ManyToManyField('Interest', blank=True)
+    interests = models.ManyToManyField("Interest", blank=True)
     profile_picture = models.ImageField(
         upload_to="profile_pics/", blank=True, null=True
     )
@@ -37,15 +38,33 @@ class UserProfile(AbstractUser):
         blank=True,
     )
 
+    # New fields
+    bio = models.TextField(blank=True, null=True)  # Optional biography
+    gender = models.CharField(
+        max_length=10,
+        choices=[
+            ("Male", "Male"),
+            ("Female", "Female"),
+            ("Other", "Other"),
+        ],
+        blank=True,
+        null=True,
+    )
+    year_of_studies = models.PositiveIntegerField(blank=True, null=True)
+    date_of_birth = models.DateField(
+        blank=True, null=True
+    )  # Date of birth field (optional)
+
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
+
 class EmailVerificationToken(models.Model):
-    user = models.ForeignKey('UserProfile', on_delete=models.CASCADE)
+    user = models.ForeignKey("UserProfile", on_delete=models.CASCADE)
     token = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         indexes = [
-            models.Index(fields=['token']),
+            models.Index(fields=["token"]),
         ]
