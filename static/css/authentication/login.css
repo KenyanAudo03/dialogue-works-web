@@ -16,7 +16,7 @@ html {
   padding: 20px;
 }
 .rules {
-  background-color: #fff;
+  background-color: rgba(239, 207, 148, 0.227);
   color: #000;
 }
 .logo {
@@ -32,6 +32,22 @@ html {
   font-weight: 700;
   font-size: 40px;
 }
+@media (max-width: 1131px) {
+  .rules h2 {
+    font-size: 30px;
+  }
+}
+@media (max-width: 1000px) {
+  .rules h2 {
+    font-size: 25px;
+  }
+}
+@media (max-width: 700px) {
+  .rules h2 {
+    font-size: 20px;
+  }
+}
+
 .login__form {
   margin-top: 40px;
 }
@@ -137,7 +153,7 @@ html {
 
 .overlay_text {
   position: absolute;
-  top: 90%;
+  top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 2rem;
@@ -146,6 +162,35 @@ html {
   text-align: center;
   z-index: 1;
   font-weight: bolder;
+}
+@media (max-width: 650px) {
+  .rules h2 {
+    font-size: 30px;
+  }
+  .registration {
+    display: flex;
+    height: auto;
+    flex-direction: column-reverse;
+  }
+  #login__platform,
+  #forgotPass__platform {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 9px;
+    margin: 4px;
+  }
+
+  #loginForm,
+  #forgotPass,
+  #resetPass {
+    max-width: 95%;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 9px;
+  }
+  .overlay_text {
+    display: none;
+  }
 }
 /* General style for the messages container */
 .messages {
@@ -156,11 +201,8 @@ html {
 }
 
 /* Style for danger (error) messages */
-.message.error,
-.alert-danger {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
+/* General message styling */
+.message {
   padding: 16px 15px;
   border-radius: 5px;
   margin-bottom: 10px;
@@ -169,13 +211,45 @@ html {
   width: 100%;
   box-sizing: border-box;
 }
-input:focus:invalid {
-    border: 1px solid red;
-  }
 
-  input:focus:valid {
-    border: 1px solid green;
-  }
+/* Error messages */
+.message.error,
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Success messages */
+.message.success,
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+/* Info messages */
+.message.info,
+.alert-info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+/* Warning messages */
+.message.warning,
+.alert-warning {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+}
+input:focus:invalid {
+  border: 1px solid red;
+}
+
+input:focus:valid {
+  border: 1px solid green;
+}
 .password-container {
   position: relative;
   width: 100%;
@@ -183,7 +257,7 @@ input:focus:invalid {
 
 #password {
   width: 100%;
-  padding-right: 30px; 
+  padding-right: 30px;
 }
 
 #togglePassword {
@@ -198,4 +272,17 @@ input:focus:invalid {
 
 #togglePassword:focus {
   outline: none;
+}
+/* Scrollbar */
+body::-webkit-scrollbar {
+  width: 6px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
 }

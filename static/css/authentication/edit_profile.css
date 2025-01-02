@@ -1,0 +1,15 @@
+.editing_profile_div {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.profile__stat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.profile_pic img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
