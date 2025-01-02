@@ -21,7 +21,7 @@
   </head>
   <body>
     <div class="registration">
-      <div class="rules">
+      <div class="rules" id="login__platform">
         <div class="logo">JOOUST DIALOGUE WORKS</div>
         <h2>Login to your Dialogue Works Account</h2>
 
@@ -38,7 +38,7 @@
           {% if messages %}
           <ul class="messages">
             {% for message in messages %}
-            <li class="message error">{{ message }}</li>
+            <li class="message {{ message.tags }}">{{ message }}</li>
             {% endfor %}
           </ul>
           {% endif %}
@@ -71,7 +71,11 @@
             </div>
             <br />
             <div class="forgot">
-              <a href="" class="forgot-link">I forgot my password</a>
+              <a
+                href="{% url 'authentication:forgot_password' %}"
+                class="forgot-link"
+                >I forgot my password</a
+              >
             </div>
             <button type="submit" id="loginButton" disabled>Login</button>
           </form>
@@ -90,6 +94,7 @@
       </div>
     </div>
   </body>
+  <!-- Auto remove messages -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const messages = document.querySelectorAll(".message");
@@ -102,6 +107,7 @@
       }, 5000);
     });
   </script>
+  <!-- Validate form before submit -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const form = document.getElementById("loginForm");
@@ -126,7 +132,7 @@
       password.addEventListener("input", checkInputs);
     });
   </script>
-
+  <!-- Toggle Password -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const togglePassword = document.getElementById("togglePassword");

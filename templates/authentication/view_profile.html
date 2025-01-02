@@ -1,0 +1,159 @@
+{% extends 'base.html' %} {% block title %}{{ user_profile.username }}'s
+Profile{% endblock %} {% block content %} {% load static %}
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Font Awesome for icons -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+/>
+<div class="container mx-auto px-4 py-8">
+  <!-- Profile Header -->
+  <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+    <div class="flex flex-col md:flex-row items-center space-x-0 md:space-x-6">
+      <!-- Profile Picture -->
+      <div class="w-32 h-32 mb-4 md:mb-0">
+        {% if user_profile.profile_picture %}
+        <img
+          src="{{ user_profile.profile_picture.url }}"
+          alt="Profile Picture"
+          class="w-full h-full rounded-full object-cover border-4 border-gray-200"
+        />
+        {% else %}
+        <div
+          class="w-full h-full rounded-full bg-gray-300 flex items-center justify-center"
+        >
+          <span class="text-4xl text-gray-600"
+            >{{ user_profile.first_name|first }}</span
+          >
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- Basic Info -->
+      <div class="flex-1 text-center md:text-left">
+        <div class="flex justify-between items-start mb-2">
+          <h1 class="text-2xl font-bold text-gray-800">
+            {{ user_profile.first_name }} {{ user_profile.last_name }}
+          </h1>
+          {% if request.user == user_profile %}
+          <a
+            href="{% url 'authentication:edit_profile' %}"
+            class="inline-flex items-center px-3 py-1.5 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            <i class="fas fa-edit mr-1"></i>
+            Edit Profile
+          </a>
+          {% endif %}
+        </div>
+
+        <p class="text-gray-600 mb-2">@{{ user_profile.username }}</p>
+
+        {% if user_profile.bio %}
+        <p class="text-gray-700 mb-4">{{ user_profile.bio }}</p>
+        {% endif %}
+
+        <div class="flex flex-wrap gap-2 justify-center md:justify-start mt-4">
+          {% if user_profile.email_verified %}
+          <span
+            class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm"
+          >
+            <i class="fas fa-check-circle mr-1"></i> Email Verified
+          </span>
+          {% endif %} {% if user_profile.whatsapp_verified %}
+          <span
+            class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
+          >
+            <i class="fas fa-phone mr-1"></i> Phone Number Verified
+          </span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detailed Information -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Academic Information -->
+    <div class="bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-xl font-semibold mb-4 text-gray-800">
+        Academic Information
+      </h2>
+      <div class="space-y-3">
+        {% if user_profile.course %}
+        <div class="flex justify-between">
+          <span class="text-gray-600">Course:</span>
+          <span class="font-medium text-gray-900"
+            >{{ user_profile.course }}</span
+          >
+        </div>
+        {% endif %} {% if user_profile.reg_number %}
+        <div class="flex justify-between">
+          <span class="text-gray-600">Registration Number:</span>
+          <span class="font-medium text-gray-900"
+            >{{ user_profile.reg_number }}</span
+          >
+        </div>
+        {% endif %} {% if user_profile.year_of_studies %}
+        <div class="flex justify-between">
+          <span class="text-gray-600">Year of Studies:</span>
+          <span class="font-medium text-gray-900"
+            >{{ user_profile.year_of_studies }}</span
+          >
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Personal Information -->
+    <div class="bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-xl font-semibold mb-4 text-gray-800">
+        Personal Information
+      </h2>
+      <div class="space-y-3">
+        {% if user_profile.gender %}
+        <div class="flex justify-between">
+          <span class="text-gray-600">Gender:</span>
+          <span class="font-medium text-gray-900"
+            >{{ user_profile.gender }}</span
+          >
+        </div>
+        {% endif %} {% if user_profile.date_of_birth %}
+        <div class="flex justify-between">
+          <span class="text-gray-600">Date of Birth:</span>
+          <span class="font-medium text-gray-900"
+            >{{ user_profile.date_of_birth|date:"F d, Y" }}</span
+          >
+        </div>
+        {% endif %} {% if user_profile.phone_number %}
+        <div class="flex justify-between">
+          <span class="text-gray-600">Phone Number:</span>
+          <span class="font-medium text-gray-900"
+            >{{ user_profile.phone_number }}</span
+          >
+        </div>
+        {% endif %}
+        <div class="flex justify-between">
+          <span class="text-gray-600">Member Since:</span>
+          <span class="font-medium text-gray-900"
+            >{{ user_profile.joined_date|date:"F d, Y" }}</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Interests -->
+    {% if user_profile.interests.all %}
+    <div class="bg-white rounded-lg shadow-md p-6 md:col-span-2">
+      <h2 class="text-xl font-semibold mb-4">Interests</h2>
+      <div class="flex flex-wrap gap-2">
+        {% for interest in user_profile.interests.all %}
+        <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">
+          {{ interest.name }}
+        </span>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
