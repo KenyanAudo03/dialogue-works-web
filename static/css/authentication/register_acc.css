@@ -344,3 +344,14 @@ body::-webkit-scrollbar-track {
   color: #fff;
   border: 1px solid transparent;
 }
+
+@media (max-width: 650px) {
+  .rules h2 {
+    font-size: 30px;
+  }
+  .registration {
+    display: flex;
+    height: auto;
+    flex-direction: column;
+  }
+}
